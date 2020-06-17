@@ -29,7 +29,8 @@ function countPV(path, rows) {
   var count = 0;
 
   var _v2_url = path.replace(/posts\//g, ''); /* the v2.0+ blog permalink: "/post-title/" */
-
+  console.log("path:" + path)
+  console.log("rows:" + JSON.stringify(rows))
   for (var i = 0; i < rows.length; ++i) {
     var gaPath = rows[i][0];
     if (gaPath == path ||
