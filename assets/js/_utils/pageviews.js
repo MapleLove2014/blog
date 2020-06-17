@@ -61,6 +61,8 @@ function tacklePV(rows, path, elem, hasInit) {
 
 
 function displayPageviews(data) {
+  console.log("data: ");
+  console.log(data);
   if (data === undefined) {
     return;
   }
