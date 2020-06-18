@@ -168,6 +168,9 @@ function fetchOriginPageviews(pvData) {
 
 function fetchProxyPageviews() {
   let proxy = JSON.parse(proxyData); /* see file '/assets/data/pv-data.json' */
+  console.log("proxy is :");
+  console.log(proxy)
+
   $.ajax({
     type: 'GET',
     url: proxy.url,
