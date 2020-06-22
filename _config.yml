@@ -59,7 +59,7 @@ google_analytics:
     enabled: true
     # the next options only valid when `google_analytics.pv` is enabled.
     proxy_url: 'https://concise-terrain-280612.uc.r.appspot.com'
-    proxy_endpoint: 'https://concise-terrain-280612.uc.r.appspot.com/query?id=ahhzfmNvbmNpc2UtdGVycmFpbi0yODA2MTJyFQsSCEFwaVF1ZXJ5GICAgOi3kJAKDA'
+    proxy_endpoint: '	https://concise-terrain-280612.uc.r.appspot.com/query?id=ahhzfmNvbmNpc2UtdGVycmFpbi0yODA2MTJyFQsSCEFwaVF1ZXJ5GICAgJj7z4EKDA'
     cache: false  # pv data local cache, good for the users from GFW area.
 
 disqus:
