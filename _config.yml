@@ -10,31 +10,31 @@
 
 title: ZhangMapler                          # the main title
 
-tagline: 我不是天生强大,我只是天生要强.  # it will display as the sub-title
+tagline: 地铁内请不要外放声音  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  广州地狱西后端程序员一枚
+  it,java,后端,算法,zhangmapler
 
 # Replace with the website url, e.g. 'https://username.github.io'
 url: 'https://blog.zhangmapler.top'
 
 author: ZhangMapler                  # change to your full name
 
-avatar: /assets/img/sample/avatar.jpg   # support internet resources
+avatar: /assets/img/小偷家族.png   # support internet resources
 
 github:
   username: MapleLove2014             # change to your github username
 
-twitter:
-  username: ZhangMapler            # change to your twitter username
+#twitter:
+#  username: ZhangMapler            # change to your twitter username
 
 social:
   name: ZhangMapler                  # it will shows as the copyright owner in Footer
   email: zhangmapler@gmail.com             # change to your email address
-  links:
+#  links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username      # change to your twitter homepage
-    - https://github.com/username       # change to your github homepage
+#    - https://twitter.com/username      # change to your twitter homepage
+#    - https://github.com/username       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
