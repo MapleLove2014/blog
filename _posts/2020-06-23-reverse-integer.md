@@ -70,13 +70,13 @@ math: true
     
     2. 还有一个原因就是可以很方便的使用 `加` 来实现 `减`，统一和简化cpu计算单元的硬件设计
 
-    > 至于计算机怎么执行有符号数的 `加` 操作，先不提了，要不然拆太远了
+    > 至于计算机怎么执行有符号数的 `加` 操作，先不提了，要不然扯太远了
 
 ## 简单实现
 
 首先看一下base case
 
-1. 当输入数只有个位数时,即 \\( \lvert x \rver < 10 \\)，直接返回
+1. 当输入数只有个位数时,即 \\( \lvert x\rver < 10 \\)，直接返回
 
 2. 当结果溢出时，返回 `0`
 
@@ -108,7 +108,7 @@ def reverse(self, x: int) -> int:
 
 看一下leetcode提交结果，效率还可以，中等偏上
 
-    ![submit1]({{ "/assets/img/reverse-integer/submit1.png"}})
+![submit1]({{ "/assets/img/reverse-integer/submit1.png"}})
 
 
 ### 复杂度分析
