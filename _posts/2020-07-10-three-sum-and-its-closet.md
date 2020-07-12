@@ -123,7 +123,7 @@ def twoPointers(self, nums):
     return list(resultDict.values())
 ```
 
-### 复杂都分析
+### 复杂度分析
 
 两层循环，时间复杂度 `O(n^2)`，但是是 `leetcode` 上提交还是会超时。这就有点头大了，感觉这已经是比较快的了，难道还能再优化？
 
