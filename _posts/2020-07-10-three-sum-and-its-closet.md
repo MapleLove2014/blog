@@ -130,7 +130,7 @@ def twoPointers(self, nums):
 ## 再次优化
 
 当然不是我自己想出来的，来自[Rohan Paul
-的文章](https://medium.com/@paulrohan/solving-the-classic-two-sum-and-three-sum-problem-in-javascript-7d5d1d47db03)的最有一步优化
+的文章](https://medium.com/@paulrohan/solving-the-classic-two-sum-and-three-sum-problem-in-javascript-7d5d1d47db03)的最后一步优化
 
 仔细观察上文的遍历过程可以发现，每遍历一个元素 `nums[i]` 时，程序都会从剩下的整数 `nums[i+1:]` 中计算出能和 `nums[i]` 组合成满足条件所有的3个数中的另外2个数的集合 `S(i)`
 
