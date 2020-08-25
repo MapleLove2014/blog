@@ -8,8 +8,11 @@
   filename: 'integer-roman-convert'
   lastmod: '2020-07-16 15:09:47 +0800'
 -
+  filename: 'string-to-integer'
+  lastmod: '2020-08-25 14:06:57 +0800'
+-
   filename: 'reverse-integer'
-  lastmod: '2020-06-23 15:22:09 +0800'
+  lastmod: '2020-08-25 14:06:51 +0800'
 -
   filename: 'zigzag'
   lastmod: '2020-06-22 17:20:09 +0800'
