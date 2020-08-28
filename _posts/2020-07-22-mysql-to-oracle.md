@@ -256,7 +256,7 @@ COMMENT ON COLUMN user.user_id IS '用户id';
 
 ## oracle字段名千万不要使用保留字
 
-首先看下oracle的[保留字](https://docs.oracle.com/cd/B19306_01/em.102/b40103/app_oracle_reserved_words.htm)，业务中可能常用到的有 `LEVEL` , `ACCOUNT`, `COST` , `UID` 等。在mysql可以使用 `backtick(``)` 来转意，但oracle只能使用双引号，但会影响查询的语句。
+首先看下oracle的[保留字](https://docs.oracle.com/cd/B19306_01/em.102/b40103/app_oracle_reserved_words.htm)，业务中可能常用到的有 `LEVEL` , `ACCOUNT`, `COST` , `UID` 等。在mysql可以使用 ``backtick(`) `` 来转义，但oracle只能使用双引号，但会影响查询的语句。
 
 比如将LEVEL改为 "LEVEL"，那么查询的语句也要带上双引号。所以如果出现这种情况，还是建议修改字段名吧。
 
