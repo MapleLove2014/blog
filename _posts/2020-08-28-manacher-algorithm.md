@@ -1,5 +1,5 @@
 ---
-title: Manacher's Algorithm
+title: Manacher Algorithm
 author: ZhangMapler
 date: 2020-08-28 10:37:00 +0800
 categories: [LeetCode]
