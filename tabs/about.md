@@ -32,7 +32,7 @@ title: 关于我
 
 我喜欢玩轮滑，至于水平，大概是平花的入门再往上一点。有时间就会带着桩找一块平整的地方，广场居多，练练crazy，volt，sun，简单的combo等等这些基础的动作。从大学的时候开始玩轮滑，因为水平差，进社团怕别人笑话，就自己在学校一处很偏僻的大门外，一条没有路灯的自行车道上玩。摔得老惨了，由于没有戴护具（有点后悔），双手都是淤血，全是红点点。后来摔多了，也就学会了。之后呢就开始在学校里面刷街，偶尔练习动作。毕业后，跟了我3年的伤痕累累的轮滑鞋我还是没舍得扔，一直跟到我现在。轴承和轮子都换了好几套了，记得上一次刷街是去了广州的二沙岛的环江人行道。特别长，也玩的特别爽，最后出来还被保安拦下，让我把鞋换了。
 
-喜欢听拉丁音乐，特别是雷鬼。推荐几个我喜欢的歌手：luis fonsi, daddy yankee, nicky jam, ozuna, shakira，nacho, manuel turizo, yatra, anuel aa, gente de zona, becky g, iglesias, 再推荐几首我的珍藏歌曲：Despacito, Mona Lisa, Kung Fu, Dejalo, Bailame, Besame, Andiamo, Tutu. 喜欢看看拉丁MV，里面的画面往往过于香艳，有的时候同事在旁边会搞得很尴尬。
+喜欢听拉丁音乐，特别是Reggaeton。推荐几个我喜欢的歌手：luis fonsi, daddy yankee, nicky jam, ozuna, shakira，nacho, manuel turizo, yatra, anuel aa, gente de zona, becky g, iglesias, 再推荐几首我的珍藏歌曲：Despacito, Mona Lisa, Kung Fu, Dejalo, Bailame, Besame, Andiamo, Tutu. 喜欢看看拉丁MV，里面的画面往往过于香艳，有的时候同事在旁边会搞得很尴尬。
 
 喜欢足球，主队巴萨，梅西粉丝。从高中偷摸着用手机看足球新闻慢慢喜欢上，到了大学都是熬夜看球，特别喜欢詹俊的解说。现在年纪大了，熬不动了。都是第二天早上起来看录像，少了点激情，但不会伤身体。这个赛季到手的冠军飞了，有点小失望。但梅老板还是一如既往的优秀，希望能和巴萨续约吧。
 
