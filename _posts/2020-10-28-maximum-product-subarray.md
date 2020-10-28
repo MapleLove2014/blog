@@ -11,7 +11,7 @@ math: false
 
 ## 问题描述
 
-这个问题是在一个整数数组中求乘积最大的子数组，官网链接点[我这里](https://leetcode.com/problems/maximum-product-subarray/)就行啦。
+这个问题是在一个整数数组中求乘积最大的子数组，官网链接点[这里](https://leetcode.com/problems/maximum-product-subarray/)就行啦。
 
 ## 问题分析
 
