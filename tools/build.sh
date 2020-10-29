@@ -8,7 +8,7 @@
 
 set -eu
 
-CMD="JEKYLL_ENV=production bundle exec jekyll b"
+CMD="JEKYLL_ENV=production bundle exec jekyll b  --incremental"
 
 WORK_DIR=$(dirname $(dirname $(realpath "$0")))
 
