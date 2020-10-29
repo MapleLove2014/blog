@@ -7,7 +7,7 @@ tags: [python, algorithm, dp]
 math: false
 ---
 
-# Unique Binary Search Trees 问 题[Medium]
+# Unique Binary Search Trees 问题[Medium]
 
 ## 问题描述
 
