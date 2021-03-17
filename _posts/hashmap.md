@@ -276,4 +276,63 @@ threshold表示新的扩容阈值，newTab和table表示新的桶数组，同时
     }
 ```
 
-至此HashMap插入元素和扩容已经分析完了，不过还差treeify和untreeify没有提。
+至此HashMap插入元素和扩容已经分析完了，不过还差treeify和untreeify没有提，如果后面后兴趣再看吧。
+
+这里再说几个面试经常会问的题目：
+
+1. 为什么使用2的n次方作为桶数组大小？
+
+    桶过上文的分析，可以看出2点：1)很方便的按位操作，性能较高。但其实我觉得主要的原因是2)通过按位与的分片方式（和key范围分片类似），保证在扩容时节点只能被放到特定的2个桶中。想象一下如果采用取模的分片方式，这个节点可能会被分到任意的桶中，数据迁移次数比较多。
+
+2. 介绍一下hashmap怎么根据初始容量寻找附近的2的n次方值？
+
+    这里推荐大家看下这个回答 [java - HashMap.tableSizeFor(...). How does this code round up to the next power of 2? - Stack Overflow](https://stackoverflow.com/questions/51118300/hashmap-tablesizefor-how-does-this-code-round-up-to-the-next-power-of-2)
+
+
+    需要注意的是：2^n = 2^n - 1 + 1, 2^n - 1低n位都是1。
+    
+    假如一个数为：0000000001010，那这个数对应的2^n -1 = 0000000001111。也就是原数的最高位1开始，后面全部弄成1就行了，最后再+1就得到2^n了。
+
+    首先 00000000010** or 00000000001** = 00000000011**， 注意这里其实已经保证前2位都是1了，那么下次再运算直接右移两位就行了。
+
+    接着右移两位继续计算 00000000011** or 000000000\*\*11 = 0000000001111。
+    
+    如果后面还有0，下次直接可以右移4位了。
+
+3. HashMap的迭代器是fail-fast吗？
+
+    答案是的，我们来看迭代器的nextNode的源码：
+
+    ```java
+        final Node<K,V> nextNode() {
+            Node<K,V>[] t;
+            Node<K,V> e = next;
+            if (modCount != expectedModCount)
+                throw new ConcurrentModificationException();
+            if (e == null)
+                throw new NoSuchElementException();
+            if ((next = (current = e).next) == null && (t = table) != null) {
+                do {} while (index < t.length && (next = t[index++]) == null);
+            }
+            return e;
+        }
+    
+    ```
+
+    可以看到，当modeCount不等于创建迭代器时的modeCount时，便会直接抛出异常。那么使用迭代器删除节点怎么就没问题呢？接着看代码：
+
+    ```java
+        public final void remove() {
+            Node<K,V> p = current;
+            if (p == null)
+                throw new IllegalStateException();
+            if (modCount != expectedModCount)
+                throw new ConcurrentModificationException();
+            current = null;
+            K key = p.key;
+            removeNode(hash(key), key, null, false, false);
+            expectedModCount = modCount;
+        }
+    ```
+
+    在迭代器中remove会更新modCount到expectedModCount上，所以不会有问题。
