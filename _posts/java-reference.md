@@ -98,11 +98,64 @@ Cleaner（`public class Cleaner extends PhantomReference<Object>`）是一个虚
 ```
 > 同样需要注意，这是一个守护线程，由于线程调度的原因，什么时候执行 `finalize` 是未知的。极端情况下，一些依赖于 `finalize` 释放资源的对象可能一直没有被回收，容易导致内存泄漏问题。
 
-说完了这5种引用类型，在插一嘴RQ：
+说完了这5种引用类型，在插一嘴RQ：RQ的存在可以在对象被GC回收前给应用程序一个通知，比如应用程序可以启动一个线程轮询RQ，打印出现在是否有不可达的非强引用对象。
 
-RQ的存在可以在对象被GC回收前给应用程序一个通知，比如应用程序可以启动一个线程轮询RQ，打印出现在是否有不可达的非强引用对象。
+> 注意进入RQ的引用是不能通过get拿出被引用的对象，从RQ中取出的Reference调用get返回的是null，和被引用的对象没有任何关系。
 
-> 注意进入RQ的不可达对象是不能通过get出来再被引用变成可达的，从RQ中取出的Reference调用get返回的是null。
+RQ可以被用在`WeakHashMap（WHM）`中通过轮询RQ获取 `WeakReachable` 的弱引用，也就是WHM的Entry。
+
+```java
+    Entry(Object key, V value,
+            ReferenceQueue<Object> queue,
+            int hash, Entry<K,V> next) {
+        super(key, queue);
+        this.value = value;
+        this.hash  = hash;
+        this.next  = next;
+    }
+```
+> 注意这里弱引用的是 `key`，也就是说如果key没有被强引用，这个Entry就会被回收。
+
+拿到即将被回收的Entry之后定位到桶，将该Entry从桶中删除，同时将value置为null，让GC回收value。
+
+```java
+    private void expungeStaleEntries() {
+        for (Object x; (x = queue.poll()) != null; ) {
+            synchronized (queue) {
+                @SuppressWarnings("unchecked")
+                    Entry<K,V> e = (Entry<K,V>) x;
+                int i = indexFor(e.hash, table.length);
+
+                Entry<K,V> prev = table[i];
+                Entry<K,V> p = prev;
+                while (p != null) {
+                    Entry<K,V> next = p.next;
+                    if (p == e) {
+                        if (prev == e)
+                            table[i] = next;
+                        else
+                            prev.next = next;
+                        // Must not null out e.next;
+                        // stale entries may be in use by a HashIterator
+                        e.value = null; // Help GC
+                        size--;
+                        break;
+                    }
+                    prev = p;
+                    p = next;
+                }
+            }
+        }
+    }
+```
+
+最后再总结下吧：
+在这片文章中，我们分别介绍了Java中的5中引用类型，以及其GC时机和使用场景。
+并通过DirectByteBuffer的例子介绍了通过虚引用的Cleaner进行释放堆外内存。
+在FinalReference中介绍了Finalizer的注册和执行以及使用的注意事项。
+最后通过WeakHashMap介绍了ReferenceQueue的使用场景和作用。
+
+
 
 
 
@@ -129,3 +182,9 @@ https://tech.meituan.com/2019/02/14/talk-about-java-magic-class-unsafe.html
 https://github.com/AdoptOpenJDK/openjdk-jdk11/blob/master/src/java.base/share/classes/jdk/internal/ref/Cleaner.java
 
 https://learningviacode.blogspot.com/2014/02/reference-queues.html
+
+https://docs.oracle.com/javase/8/docs/api/java/lang/ref/package-summary.html#package.description
+
+https://stackoverflow.com/questions/58225656/which-reference-finalizer-finalreference-or-weak-phantom-soft-reference-have-h
+
+https://stackoverflow.com/questions/5511279/what-is-a-weakhashmap-and-when-to-use-it
