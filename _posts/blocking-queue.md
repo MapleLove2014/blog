@@ -5,20 +5,21 @@
 初始两个信号量：SEM_EMPTY_SPACE=10和SEM_FILLED=0，互斥量MUTEX，用以保证同时只有一个线程操作队列
 
 添加元素线程：
-
+```
 P(SEM_EMPTY_SPACE)
 P(MUTEX)
 add elements
 V(MUTEX)
 V(SEM_FILLED)
-
+```
 取元素线程：
-
+```
 P(SEM_FILLED)
 P(MUTEX)
 take elements
 V(MUTEX)
 V(SEM_EMPTY_SPACE)
+```
 
 OK，那么在Java中是怎么实现的？
 
